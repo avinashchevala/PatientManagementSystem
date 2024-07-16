@@ -134,6 +134,7 @@ const RegisterForm = ({user}: {user: User}) => {
                   className="flex h-11 gap-6 xl:justify-between"
                   onValueChange={field.onChange}
                   defaultValue={field.value}
+                  id="gender"
                 >
                   {GenderOptions.map((gender) => {
                     return (
@@ -311,15 +312,16 @@ const RegisterForm = ({user}: {user: User}) => {
         <CustomFormField
           fieldType={FormFieldType.CHECKBOX}
           control={form.control}
-          name="disclosureConsent"
-          label="I consent to the disclosure of information"
+          name="privacyConsent"
+          label="I consent to privacy policy"
         />
         <CustomFormField
           fieldType={FormFieldType.CHECKBOX}
           control={form.control}
-          name="privacyConsent"
-          label="I consent to privacy policy"
+          name="disclosureConsent"
+          label="I consent to the disclosure of information"
         />
+
         <SubmitButton isLoading={isLoading}>Get Started</SubmitButton>
       </form>
     </Form>

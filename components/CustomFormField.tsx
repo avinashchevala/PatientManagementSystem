@@ -139,17 +139,20 @@ const RenderField = ({field, props}: {field: any; props: CustomProps}) => {
         <FormControl>
           <div className="flex items-center gap-4">
             <Checkbox
+              {...field}
               id={name}
+              name={name}
               checked={field.value}
               onCheckedChange={field.onChange}
             />
-            <Label htmlFor={name} className="checkbox-label">
+            <FormLabel  htmlFor={name} className="checkbox-label">
               {props.label}
-            </Label>
+            </FormLabel>
           </div>
         </FormControl>
       );
     default:
+      return null;
       break;
   }
 };
@@ -163,7 +166,7 @@ const CustomFormField = (props: CustomProps) => {
       render={({field}) => (
         <FormItem className="flex-1">
           {fieldType !== FormFieldType.CHECKBOX && label && (
-            <FormLabel>{label}</FormLabel>
+            <FormLabel >{label}</FormLabel>
           )}
           <RenderField field={field} props={props} />
           <FormMessage className="shad-error" />
